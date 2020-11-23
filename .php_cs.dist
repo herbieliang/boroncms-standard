@@ -1,0 +1,85 @@
+<?php
+
+declare(strict_types=1);
+
+$finder = PhpCsFixer\Finder::create()
+    ->exclude('tests/Fixtures')
+    ->in(__DIR__)
+    ->append([__DIR__.'/php-cs-fixer']);
+
+$config = PhpCsFixer\Config::create()
+    ->setRiskyAllowed(TRUE)
+    ->setRules([
+        '@PSR1'           => TRUE,
+        '@PSR2'           => TRUE,
+        '@PHP70Migration' => TRUE,
+        // '@PHP70Migration:risky' => TRUE,
+        '@PhpCsFixer' => TRUE,
+        // '@PhpCsFixer:risky'     => TRUE,
+        '@Symfony'       => TRUE,
+        '@Symfony:risky' => TRUE,
+
+        // 对齐多行注释
+        'align_multiline_comment' => TRUE,
+        // 数组的每个元素必须缩进一次
+        'array_indentation' => TRUE,
+        // 数组使用的语法风格，syntax值为 short，long 其中一个
+        'array_syntax' => ['syntax' => 'short'],
+        // 运算符样式
+        'binary_operator_spaces' => [
+            // 操作符对齐方式为单空格或多列对齐
+            'default' => 'align_single_space_minimal',
+        ],
+        // 命名空间后添加空行
+        'blank_line_after_namespace' => TRUE,
+        // 指定关键词语句前添加空行
+        'blank_line_before_statement' => [
+            'statements' => ['do', 'for', 'foreach', 'if', 'switch', 'break', 'continue', 'declare', 'return', 'throw', 'try'],
+        ],
+        // 变量之间添加空格
+        'cast_spaces' => [
+            'space' => 'single',
+        ],
+        // Class, trait 和 interface 中元素之间添加空行
+        'class_attributes_separation' => [
+            // 常量，方法，属性前添加空行
+            'elements' => ['const', 'method', 'property'],
+        ],
+        // 将 ::class 转换成字符串样式
+        'class_keyword_remove' => FALSE,
+        // 必须使用正确的大小写来写PHP常量true，false和null。
+        'constant_case' => [
+            // upper=>大写，lower=>小写
+            'case' => 'upper',
+        ],
+        // 用等效的 __DIR__ 常量替换 dirname(__ FILE__) 表达式。
+        'dir_constant' => TRUE,
+        // 使用 && 和 || 逻辑运算符代替 and or
+        'logical_operators'                      => TRUE,
+        'multiline_whitespace_before_semicolons' => ['strategy' => 'no_multi_line'],
+        // 删除非空白行末尾的空白
+        'no_trailing_whitespace' => TRUE,
+        // 删除未使用的 use 声明
+        'no_unused_imports' => TRUE,
+        // 三元运算符的空格
+        'ternary_operator_spaces' => TRUE,
+    ])
+    ->setFinder($finder);
+
+// special handling of fabbot.io service if it's using too old PHP CS Fixer version
+if (FALSE !== getenv('FABBOT_IO')) {
+    try {
+        PhpCsFixer\FixerFactory::create()
+            ->registerBuiltInFixers()
+            ->registerCustomFixers($config->getCustomFixers())
+            ->useRuleSet(new PhpCsFixer\RuleSet($config->getRules()));
+    } catch (PhpCsFixer\ConfigurationException\InvalidConfigurationException $e) {
+        $config->setRules([]);
+    } catch (UnexpectedValueException $e) {
+        $config->setRules([]);
+    } catch (InvalidArgumentException $e) {
+        $config->setRules([]);
+    }
+}
+
+return $config;
