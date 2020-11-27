@@ -1,16 +1,25 @@
 <?php
 
+use AdminMenuTableSeeder;
+use AdminPermissionMenuTableSeeder;
+use AdminPermissionsTableSeeder;
+use AdminRoleUsersTableSeeder;
+use AdminRolesTableSeeder;
+use AdminUsersTableSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
-     * @return void
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(AdminRolesTableSeeder::class);
+        $this->call(AdminPermissionsTableSeeder::class);
+        $this->call(AdminMenuTableSeeder::class);
+        $this->call(AdminPermissionMenuTableSeeder::class);
+        $this->call(AdminUsersTableSeeder::class);
+        $this->call(AdminRoleUsersTableSeeder::class);
     }
 }

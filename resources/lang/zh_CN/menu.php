@@ -2,8 +2,8 @@
 
 return [
     'titles' => [
-        'index'         => '主页',
-        'admin'         => '系统',
+        'index'         => '控制台',
+        'admin'         => '系统设置',
         'users'         => '管理员',
         'roles'         => '角色',
         'permission'    => '权限',
@@ -13,5 +13,6 @@ return [
         'extensions'    => '扩展',
         'scaffold'      => '代码生成器',
         'icons'         => '图标',
+        'setting'       => '网站设置',
     ],
 ];
