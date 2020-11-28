@@ -2,7 +2,8 @@
 
 return [
     'labels' => [
-        'tabs' => [
+        'setting' => '系统设置',
+        'tabs'    => [
             'basic' => '网站基本设置',
             'email' => '邮件设置',
         ],
@@ -35,6 +36,5 @@ return [
         'email_password'   => '发信密码',
         'email_nickname'   => '发信昵称',
     ],
-    'options' => [
-    ],
+    'options' => [],
 ];

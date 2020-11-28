@@ -24,14 +24,19 @@ return [
         'type'                  => '类型',
     ],
     'labels' => [
-        'list'     => '列表',
-        'edit'     => '编辑',
-        'detail'   => '详细',
-        'create'   => '创建',
-        'root'     => '顶级',
-        'scaffold' => '代码生成器',
+        'list'        => '列表',
+        'edit'        => '编辑',
+        'detail'      => '详细',
+        'create'      => '创建',
+        'root'        => '顶级',
+        'scaffold'    => '代码生成器',
+        'auth'        => '授权',
+        'users'       => '管理员',
+        'roles'       => '角色',
+        'permissions' => '权限',
+        'menu'        => '菜单',
+        'extensions'  => '扩展',
     ],
     'options' => [
-        //
     ],
 ];

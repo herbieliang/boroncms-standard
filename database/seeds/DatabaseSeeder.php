@@ -1,15 +1,9 @@
 <?php
-
-use AdminMenuTableSeeder;
-use AdminPermissionMenuTableSeeder;
-use AdminPermissionsTableSeeder;
-use AdminRoleUsersTableSeeder;
-use AdminRolesTableSeeder;
-use AdminUsersTableSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+
     /**
      * Seed the application's database.
      */
