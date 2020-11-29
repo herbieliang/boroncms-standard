@@ -10,6 +10,22 @@ use Dcat\Admin\Widgets\Form;
  */
 class Setting extends Form
 {
+
+    private $settingService;
+
+    /**
+     *
+     * @see \Dcat\Admin\Widgets\Form::__construct()
+     *
+     * @param mixed $data
+     * @param mixed|null $key
+     */
+    public function __construct($data = [], $key = NULL)
+    {
+        parent::__construct($data, $key);
+        $this->settingService = new SettingService();
+    }
+
     /**
      * Handle the form request.
      *
@@ -17,7 +33,7 @@ class Setting extends Form
      */
     public function handle(array $input)
     {
-        $result = (new SettingService())->batchWrite($input);
+        $result = $this->settingService->batchWrite($input);
 
         if ($result) {
             return $this->response()->success('保存成功');
@@ -74,6 +90,7 @@ class Setting extends Form
      */
     public function default()
     {
-        return (new SettingService())->readAll();
+        return $this->settingService->readAll();
     }
+
 }
