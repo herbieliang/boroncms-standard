@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Admin\Forms\Setting;
+use App\Admin\Forms\SettingForm;
 use App\Http\Controllers\Controller;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Widgets\Card;
@@ -12,9 +12,10 @@ use Dcat\Admin\Widgets\Card;
  */
 class SettingController extends Controller
 {
-    public function setting(Content $content)
-    {
-        return $content->title(admin_trans('menu.titles.setting'))
-            ->body(new Card(new Setting()));
-    }
+
+   public function setting(Content $content)
+   {
+      return $content->title(admin_trans('menu.titles.setting'))->body(new Card(new SettingForm()));
+   }
+
 }

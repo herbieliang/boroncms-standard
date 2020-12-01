@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Model;
+use App\Libraries\Core\BaseModel;
 
-class SlideCategory extends Model
+/**
+ * 幻灯分类模型
+ *
+ * @author Herbie Liang
+ *
+ */
+class SlideCategory extends BaseModel
 {
-	
-    use SoftDeletes;
 
-    protected $table = 'slide_category';
-    
+   protected $table = 'slide_category';
+
 }
