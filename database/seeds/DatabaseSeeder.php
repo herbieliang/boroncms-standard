@@ -1,4 +1,5 @@
 <?php
+use Database\Seeds\AdminTablesSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -9,11 +10,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(AdminRolesTableSeeder::class);
-        $this->call(AdminPermissionsTableSeeder::class);
-        $this->call(AdminMenuTableSeeder::class);
-        $this->call(AdminPermissionMenuTableSeeder::class);
-        $this->call(AdminUsersTableSeeder::class);
-        $this->call(AdminRoleUsersTableSeeder::class);
+        // $this->call(AdminRolesTableSeeder::class);
+        // $this->call(AdminPermissionsTableSeeder::class);
+        // $this->call(AdminMenuTableSeeder::class);
+        // $this->call(AdminPermissionMenuTableSeeder::class);
+        // $this->call(AdminUsersTableSeeder::class);
+        // $this->call(AdminRoleUsersTableSeeder::class);
+        $this->call(AdminTablesSeeder::class);
     }
+
 }
