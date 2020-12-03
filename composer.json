@@ -8,15 +8,16 @@
 	],
 	"license" : "MIT",
 	"require" : {
-		"php" : "^7.2.5|^8.0",
-		"anlutro/l4-settings" : "^1.0",
-		"dcat/laravel-admin" : "2.0.*-dev",
-		"fideloper/proxy" : "^4.4",
-		"godruoyi/php-snowflake" : "^1.0",
-		"intervention/image" : "^2.5",
-		"laravel/framework" : "^6.20",
-		"laravel/tinker" : "^2.5",
-		"orangehill/iseed" : "^2.6"
+		"php": "^7.2.5|^8.0",
+		"anlutro/l4-settings": "^1.0",
+		"dcat/easy-excel": "^1.0",
+		"dcat/laravel-admin": "2.0.*-dev",
+		"fideloper/proxy": "^4.4",
+		"godruoyi/php-snowflake": "^1.0",
+		"intervention/image": "^2.5",
+		"laravel/framework": "^6.20",
+		"laravel/tinker": "^2.5",
+		"orangehill/iseed": "^2.6"
 	},
 	"require-dev" : {
 		"facade/ignition" : "^1.16.4",
